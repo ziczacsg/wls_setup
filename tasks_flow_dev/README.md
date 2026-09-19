@@ -81,6 +81,8 @@ Ký hiệu ngữ cảnh lệnh dùng trong từng task:
 
 ## Tài liệu tham khảo dùng chung / tuỳ chọn
 
+- [Hướng dẫn thiết lập môi trường Dev (gộp Giai đoạn 2 + build production + export/update image)](guide_setup_dev_wls.md) —
+  dùng khi clear/import lại WSL hoặc onboard member mới, đã điền sẵn giá trị thật của dự án
 - [Bảng xử lý sự cố (Task 17)](17-9-troubleshooting-reference.md) — Bước 17.9
 - [`.wslconfig` — giới hạn RAM/CPU](21-wslconfig-tuning_human.md) — Phụ lục A (tuỳ chọn, per-máy)
 - [Script cập nhật môi trường không cần export lại](22-update-env-script.md) — Phụ lục B (tuỳ chọn)
