@@ -18,20 +18,20 @@ không tick trước khi verify xong. Thứ tự bám theo bảng trong [`README
 - [x] 10. Apache (mod_php) — `08-apache-modphp.md`
 - [ ] 11. HTTPS mkcert — phần WSL — `09-https-mkcert-wsl.md` ⏭️ bỏ qua theo yêu cầu người dùng (2026-09-19) — xem `.claude/task.md`
 - [ ] 12. HTTPS mkcert — tin cậy CA trên Windows — `09b-https-mkcert-trust-windows_human.md` 🧑 ⏭️ bỏ qua theo yêu cầu người dùng (2026-09-19)
-- [ ] 13. Cấu hình Xdebug 3 — `10-xdebug-config.md`
-- [ ] 14. Adminer — `11-adminer.md`
+- [x] 13. Cấu hình Xdebug 3 — `10-xdebug-config.md` (`xdebug.ini` dev đã ghi đè + Apache restart, `xdebugctl` đã tạo, `.vscode/launch.json` tạo tại `~/projects/MKintai_Setup_WLS/.vscode/launch.json`; việc đặt breakpoint thực tế trong VSCode để lại Task 24/17-7)
+- [x] 14. Adminer — `11-adminer.md` (Task 09/mkcert bị bỏ qua nên không có chứng chỉ `/etc/ssl/local-dev` — chạy qua HTTP trên cổng 8080 sẵn có bằng name-based vhost `ServerName adminer.localhost` thay vì HTTPS 8444; kiểm tra qua `curl -H "Host: adminer.localhost" http://localhost:8080/` → 200 OK, không ảnh hưởng vhost Flow)
 - [x] 15. SSH server — phần WSL — `12-ssh-server-wsl.md`
 - [ ] 16. Docker Engine (optional) — `13-docker-optional.md` ⏭️ bỏ qua theo yêu cầu người dùng (2026-09-19) — xem `.claude/task.md`
 - [x] 17. Scaffold dự án monorepo — `14-project-scaffold-structure.md`
-- [ ] 18. VSCode Remote - WSL — `15-vscode-remote-wsl_human.md` 🧑
+- [ ] 18. VSCode Remote - WSL — `15-vscode-remote-wsl_human.md` 🧑 ⏭️ chưa tick đủ theo yêu cầu người dùng (2026-09-19) — VSCode đã kết nối WSL, `xdebug.php-debug` + `Anthropic.claude-code` đã cài trong WSL (đủ để chạy Task 24); 5 extension còn lại trong `extensions.json` (Intelephense, Volar, ESLint, Prettier, EditorConfig) bị bỏ qua theo yêu cầu người dùng, không bắt buộc cài để tiếp tục
 - [x] 19. Backend — package `MKintai.App` — `17-1-backend-scaffold-acme-app.md` (đã đổi tên package thật thành `MKintai.App` thay placeholder `Acme.App`, xác nhận với người dùng 2026-09-19)
 - [x] 20. Frontend — mount Vue vào thẻ gốc — `17-2-frontend-vue-mount.md` (outDir trỏ tới package thật `MKintai.App`)
 - [x] 21. Chạy Vite dev server — `17-3-run-vite-dev-server.md` (chạy nền tại `http://localhost:5173` — HTTP thay vì HTTPS vì Task 09/mkcert đã bị bỏ qua)
 - [x] 22. Kiểm chứng `/api/health` — `17-4-verify-backend-health.md` (5/6 trường đạt: flowContext, php.version, php.sapi, php.xdebug, mysql, redis đều OK; `https: false` do Task 09/mkcert bị bỏ qua trước đó — kiểm tra qua `http://localhost:8080/api/health` thay vì `https://...:8443`)
-- [ ] 23. Kiểm chứng Fluid → Vue trong trình duyệt — `17-5-verify-fluid-vue-browser_human.md` 🧑
-- [ ] 24. Xdebug + VSCode — kiểm chứng — `17-7-verify-xdebug-vscode_human.md` 🧑
+- [x] 23. Kiểm chứng Fluid → Vue trong trình duyệt — `17-5-verify-fluid-vue-browser_human.md` 🧑 (người dùng xác nhận cả 7/7 mục đạt qua `http://flow.localhost:8080/demo` — HTTP thay vì HTTPS 8443 vì Task 09/mkcert bị bỏ qua; đã fix trước đó: `devServer` trong `Settings.yaml` phải khớp `http://localhost:5173` với protocol Vite thực chạy — xác nhận 2026-09-19)
+- [x] 24. Xdebug + VSCode — kiểm chứng — `17-7-verify-xdebug-vscode_human.md` 🧑 (người dùng xác nhận đã đặt breakpoint tại `ProductProvider::all()`, F5, mở `http://localhost:8080/demo?XDEBUG_TRIGGER=1` — HTTP thay vì HTTPS 8443 vì Task 09/mkcert đã bị bỏ qua — VSCode dừng đúng chỗ và xem được `$products`, xác nhận 2026-09-19)
 - [ ] 25. Docker + service Go — kiểm chứng — `17-8-verify-docker-go-service.md` ⏭️ bỏ qua theo yêu cầu người dùng (2026-09-19) — phụ thuộc Task 16 (Docker), xem `.claude/task.md`
-- [ ] 26. Commit & push scaffold — `17-10-commit-push-scaffold.md` ⚠️ cần xác nhận trước `push`
+- [x] 26. Commit & push scaffold — `17-10-commit-push-scaffold.md` (người dùng tự thực hiện commit `f0f7380 "init project"` + `git push` tới `origin` `https://github.com/ziczacsg/MKintai_Setup_WLS.git`; xác nhận `git status` sạch, `branch main` up to date với `origin/main` — 2026-09-19)
 - [ ] 27. Dọn dẹp trước khi export — `18-pre-export-cleanup.md` ⚠️ hành động phá huỷ, cần xác nhận
 - [ ] 28. Export WSL — `19-export-wsl_human.md` 🧑 ⏭️ bỏ qua theo yêu cầu người dùng (2026-09-19) — xem `.claude/task.md`
 
